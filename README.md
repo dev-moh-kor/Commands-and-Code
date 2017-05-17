@@ -9,19 +9,20 @@ Note: The Cloud Server (Linux) root or (Windows) Administrator account password 
 
 Use the following steps to reset a MySQL root password by using the command line interface.
 
-Stop the MySQL service
+      Stop the MySQL service
 
 (Ubuntu and Debian) Run the following command:
 
-sudo /etc/init.d/mysql stop
+      sudo /etc/init.d/mysql stop
 (CentOS, Fedora, and Red Hat Enterprise Linux) Run the following command:
 
-sudo /etc/init.d/mysqld stop
+      sudo /etc/init.d/mysqld stop
+
 Start MySQL without a password
 
 Run the following command. The ampersand (&) at the end of the command is required.
 
-sudo mysqld_safe --skip-grant-tables &
+      sudo mysqld_safe --skip-grant-tables &
 Connect to MySQL
 
 Run the following command:
