@@ -35,9 +35,7 @@ Run the following command:
 use mysql;
 
       update user set password=PASSWORD("mynewpassword") where User='root';
-
       flush privileges;
-
       quit
       Stop and start the MySQL service
 
@@ -54,4 +52,5 @@ use mysql;
 Log in to the database
 
 Test the new password by logging in to the database.
+      
       mysql -u root -p
