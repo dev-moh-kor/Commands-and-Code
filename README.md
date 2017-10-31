@@ -54,3 +54,9 @@ Log in to the database
 Test the new password by logging in to the database.
       
       mysql -u root -p
+      
+Generate Key pair:
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+
+The keys will be saves in .ssh folder within the user folder
