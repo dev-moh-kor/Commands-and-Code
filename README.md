@@ -57,6 +57,24 @@ Test the new password by logging in to the database.
       
 Generate Key pair:
 
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+      ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
-The keys will be saves in .ssh folder within the user folder
+The keys will be saves in .ssh folder within the user folder.
+Add the SSH key to the agent:
+      
+Before adding a new SSH key to the ssh-agent to manage your keys, you should have checked for existing SSH keys and generated a new SSH key. When adding your SSH key to the agent, use the default macOS ssh-add command, and not an application installed by macports, homebrew, or some other external source.
+
+Start the ssh-agent in the background.
+
+      eval "$(ssh-agent -s)"
+      Agent pid 59566
+If you're using macOS Sierra 10.12.2 or later, you will need to modify your ~/.ssh/config file to automatically load keys into the ssh-agent and store passphrases in your keychain.
+
+      Host *
+      AddKeysToAgent yes
+      UseKeychain yes
+      IdentityFile ~/.ssh/id_rsa
+      
+Add your SSH private key to the ssh-agent and store your passphrase in the keychain. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_rsa in the command with the name of your private key file.
+
+      $ ssh-add -K ~/.ssh/id_rsa
